@@ -15,19 +15,26 @@ def loop(pixel_range, r, g, b):
     sleep(0.1)
 
 
-def loopRange(pixel_range):
-  def loop(r, g, b):
+def loop_range(pixel_range):
+  def inner_loop(r, g, b):
     '''animates lighting up the specified pixels in the specified color'''
     for pixel in pixel_range:
       set_pixel(pixel, r, g, b)
       show()
       sleep(0.1)
 
-  return loop
+  return inner_loop
 
 
-loopUp = loopRange(range(7))
-loopDown = loopRange(reversed(range(1, 8)))
+loop_up = loop_range(range(7))
+# BUT WHY MUST I RESORT TO THIS HANNAH? WHY WOULD I HAVE TO LIVE IN SUCH A WORLD?
+loop_down = loop_range([7, 6, 5, 4, 3, 2, 1])
+
+# if this worked... 
+# loop(reversed(range(1, 8)), r, g, b)
+
+# why doesn't this work?
+# loop_down = loop_range(reversed(range(1, 8)))
 
 
 def oscillate():
@@ -38,10 +45,10 @@ def oscillate():
 
   while True:
     # loop(range(7), r, g, b)
-    loopUp(r, g, b)
+    loop_up(r, g, b)
     clear()
     # loop(reversed(range(1, 8)), r, g, b)
-    loopDown(r, g, b)
+    loop_down(r, g, b)
     clear()
 
 
