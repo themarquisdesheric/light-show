@@ -31,10 +31,10 @@ loop_up = loop_range(range(7))
 loop_down = loop_range([7, 6, 5, 4, 3, 2, 1])
 
 # if this worked... 
-# loop(reversed(range(1, 8)), r, g, b)
+# loop(reversed(range(1, 7)), r, g, b)
 
 # why doesn't this work?
-# loop_down = loop_range(reversed(range(1, 8)))
+# loop_down = loop_range(reversed(range(1, 7)))
 
 
 def oscillate():
@@ -47,7 +47,7 @@ def oscillate():
     # loop(range(7), r, g, b)
     loop_up(r, g, b)
     clear()
-    # loop(reversed(range(1, 8)), r, g, b)
+    # loop(reversed(range(1, 7)), r, g, b)
     loop_down(r, g, b)
     clear()
 
